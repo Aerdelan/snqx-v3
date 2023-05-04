@@ -1,8 +1,8 @@
 <!--
  * @Author: 王业丞 1874863790@qq.com
  * @Date: 2023-04-09 21:16:17
- * @LastEditors: 王业丞 1874863790@qq.com
- * @LastEditTime: 2023-04-11 17:37:51
+ * @LastEditors: Aerdelan 1874863790@qq.com
+ * @LastEditTime: 2023-04-21 00:21:49
  * @FilePath: \snqx-vue3\src\views\home\top\index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -25,12 +25,10 @@
             {{ item.data }}
           </div>
           <div dclass="nav_btn_t">
-            <a
-              href="https://gfcn-center.sunborngame.com/?type_num=1"
-              target="blank"
-              class="login"
-              >登录</a
-            >
+            <router-link to="/login">
+              <a href="" target="blank" class="login">登录</a>
+            </router-link>
+
             <a
               href="https://gfcn-center.sunborngame.com/?type_num=2"
               target="blank"
@@ -46,6 +44,8 @@
 </template>
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
 // 顶部active
 const typeId = ref(0);
 const topList = ref([
@@ -75,6 +75,9 @@ const topList = ref([
 const yellow = (index) => {
   typeId.value = index;
   console.log(index);
+};
+const login = () => {
+  router.push("/login");
 };
 </script>
 <style lang="scss" scoped>
